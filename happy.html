@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pedido de Casamento</title>
     <style>
         body {
             background-image: url("_fotos/standard-quality-control-concept-m_23-2150041859.jpg");
@@ -12,26 +12,133 @@
             background-position: center;
             background-repeat: no-repeat;
             height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        div{
+
+        .overlay {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            text-shadow: 14px blue;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.4);
+            position: relative;
+            z-index: 2;
         }
-        div>h1{
+
+        h1 {
             text-align: center;
             color: white;
+            text-shadow: 2px 2px 6px rgba(0, 0, 255, 0.6);
+            font-size: 2.5rem;
+            animation: heartbeat 2s infinite, fadeIn 3s ease-out;
+            max-width: 800px;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            25%, 75% {
+                transform: scale(1.05);
+            }
+            50% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(20px);
+                filter: blur(4px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        .hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: pink;
+            transform: rotate(45deg);
+            animation: floatHearts 8s linear infinite;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: pink;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: -10px;
+            top: 0;
+        }
+
+        @keyframes floatHearts {
+            0% {
+                transform: translateY(100vh) rotate(45deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) rotate(45deg);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div>
-        <h1>Estou muitissimo feliz por você ter aceite o meu pedido de casamento mor,promete que nunca irás de se arrepender.
-        </h1>
+    <div class="overlay">
+        <h1>Estou muitíssimo feliz por você ter aceitado o meu pedido de casamento, amor. Promete que nunca irá se arrepender?</h1>
     </div>
+
+    <!-- Corações animados -->
+    <div class="hearts">
+        <!-- Gerando vários corações com diferentes posições e delays -->
+        <script>
+            for (let i = 0; i < 30; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDelay = Math.random() * 8 + 's';
+                heart.style.animationDuration = (6 + Math.random() * 4) + 's';
+                document.querySelector('.hearts').appendChild(heart);
+            }
+        </script>
+    </div>
+
+    <!-- Música romântica de fundo -->
+    <audio autoplay loop>
+        <source src="musica-romantica.mp3" type="audio/mpeg">
+        Seu navegador não suporta o áudio.
+    </audio>
 </body>
 
 </html>
