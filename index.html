@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido Romântico</title>
+    <link rel="stylesheet" href="_css/happy.css">
+</head>
+
+<body>
+
+    <div>
+        <h1>Aceitas Casar comigo?</h1>
+        <div id="bt">
+            <button id="sim" onclick="tt()">Sim</button>
+            <button id="não">Não</button>
+        </div>
+    </div>
+
+    <!-- Floating hearts -->
+    <div class="heart" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+    <div class="heart" style="top: 30%; left: 50%; animation-delay: 1s;"></div>
+    <div class="heart" style="top: 40%; left: 80%; animation-delay: 2s;"></div>
+    <div class="heart" style="top: 60%; left: 20%; animation-delay: 3s;"></div>
+    <div class="heart" style="top: 70%; left: 70%; animation-delay: 4s;"></div>
+
+    <script>
+        document.getElementById("não").addEventListener("mouseover", function () {
+            let h = window.innerHeight - 50;
+            let w = window.innerWidth - 50;
+            this.style.position = "absolute"
+            this.style.top = Math.random() * h + "px"
+            this.style.left = Math.random() * w + "px"
+        })
+
+        function tt() {
+            window.location.href = "happy.html"
+            alert("Foi a melhor escolha da sua vida amor")
+        }
+    </script>
+</body>
+
+</html>
