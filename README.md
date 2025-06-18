@@ -1,2 +1,2 @@
 # Pedido_de_casamento
-Como os devs pedem em casamento de forma única,descontraída e divertido sem deixar o que fazemos de fazemos de melhor.
+Como os devs pedem em casamento de forma única,descontraída e divertido sem deixar o que fazemos  melhor.
